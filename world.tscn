@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://blfphqkre468j"]
+
+[ext_resource type="Script" uid="uid://d02dxd3iiqa6" path="res://world.gd" id="1_aqk2v"]
+[ext_resource type="PackedScene" uid="uid://dn1s3s0bn1p55" path="res://player/player.tscn" id="1_f3sb7"]
+[ext_resource type="PackedScene" uid="uid://cacphfsfbl2v7" path="res://player_spawn_point.tscn" id="1_tlwt5"]
+[ext_resource type="Script" uid="uid://cp74r4pext6qc" path="res://player_spawn_point.gd" id="2_aqk2v"]
+[ext_resource type="PackedScene" uid="uid://chki0wwfkyws3" path="res://sheep.tscn" id="5_036b0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_036b0"]
+size = Vector2(967, 93)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_036b0"]
+friction = 0.1
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_aqk2v")
+player_scene = ExtResource("1_f3sb7")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(905, 465)
+zoom = Vector2(3, 3)
+
+[node name="Platform" type="StaticBody2D" parent="."]
+position = Vector2(126, 532)
+
+[node name="Polygon2D" type="Polygon2D" parent="Platform"]
+polygon = PackedVector2Array(-13, 87, -14, -14, 961, -13, 960, 86)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
+position = Vector2(473.5, 36.5)
+shape = SubResource("RectangleShape2D_036b0")
+
+[node name="SpawnPoints" type="Node2D" parent="."]
+
+[node name="PlayerSpawn1" parent="SpawnPoints" instance=ExtResource("1_tlwt5")]
+position = Vector2(207, 177)
+script = ExtResource("2_aqk2v")
+
+[node name="PlayerSpawn2" parent="SpawnPoints" instance=ExtResource("1_tlwt5")]
+position = Vector2(443, 171)
+script = ExtResource("2_aqk2v")
+
+[node name="PlayerSpawn3" parent="SpawnPoints" instance=ExtResource("1_tlwt5")]
+position = Vector2(698, 178)
+script = ExtResource("2_aqk2v")
+
+[node name="PlayerSpawn4" parent="SpawnPoints" instance=ExtResource("1_tlwt5")]
+position = Vector2(927, 181)
+script = ExtResource("2_aqk2v")
+
+[node name="Sheep" parent="." instance=ExtResource("5_036b0")]
+position = Vector2(1018, 490)
+physics_material_override = SubResource("PhysicsMaterial_036b0")

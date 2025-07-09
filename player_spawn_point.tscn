@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://cacphfsfbl2v7"]
+
+[node name="Player1Spawn" type="Node2D"]
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.6421695, 0.0032288034, 0.92808926, 1)
+polygon = PackedVector2Array(0, 15, -15, 0, 0, -15, 15, 0)

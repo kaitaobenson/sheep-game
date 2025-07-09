@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://car20u3rc6wij"]
+
+[ext_resource type="Script" uid="uid://cll1oygb50ri3" path="res://start_screen/start_screen_menu.gd" id="1_rs4r3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_hsg2v"]
+font_size = 100
+
+[node name="StartScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 225.0
+offset_top = 58.0
+offset_right = 927.0
+offset_bottom = 195.0
+text = "Untitled Game"
+label_settings = SubResource("LabelSettings_hsg2v")
+
+[node name="Menu" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 417.0
+offset_top = 311.0
+offset_right = 717.0
+offset_bottom = 571.0
+theme_override_constants/separation = 10
+script = ExtResource("1_rs4r3")
+character_select_screen = "res://character_select_screen/character_select_screen.tscn"
+
+[node name="PlayButton" type="Button" parent="Menu"]
+custom_minimum_size = Vector2(300, 80)
+layout_mode = 2
+text = "Play"
+
+[node name="SettingsButton" type="Button" parent="Menu"]
+custom_minimum_size = Vector2(300, 80)
+layout_mode = 2
+text = "Settings"
+
+[node name="ExitButton" type="Button" parent="Menu"]
+custom_minimum_size = Vector2(300, 80)
+layout_mode = 2
+text = "Exit"
