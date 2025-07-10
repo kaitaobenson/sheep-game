@@ -1,12 +1,12 @@
-[gd_scene load_steps=34 format=3 uid="uid://dn1s3s0bn1p55"]
+[gd_scene load_steps=35 format=3 uid="uid://dn1s3s0bn1p55"]
 
 [ext_resource type="Script" uid="uid://b38x2ay43cpaq" path="res://player/player.gd" id="1_onrkg"]
-[ext_resource type="Texture2D" uid="uid://belickg2hs61f" path="res://skins/1_red.png" id="2_rkbax"]
-[ext_resource type="Texture2D" uid="uid://ba8abnwod4uk0" path="res://art/player-sheet.png" id="3_g1dw6"]
+[ext_resource type="Texture2D" uid="uid://ba8abnwod4uk0" path="res://art/player_sheet.png" id="3_g1dw6"]
+[ext_resource type="Script" uid="uid://b1tcxqcvpl58t" path="res://player/player_animations.gd" id="3_yw30f"]
+[ext_resource type="Script" uid="uid://cuy3bfxiijs7q" path="res://player/player_movement.gd" id="4_yw30f"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g1dw6"]
-radius = 35.0
-height = 146.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qjkh3"]
+size = Vector2(96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yw30f"]
 atlas = ExtResource("3_g1dw6")
@@ -164,7 +164,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_8t03j")
 }],
-"loop": true,
+"loop": false,
 "name": &"jump_land",
 "speed": 5.0
 }, {
@@ -172,24 +172,24 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2ieo8")
 }],
-"loop": true,
+"loop": false,
 "name": &"jump_land_2",
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_ebec5")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_yllr7")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_kb6p2")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_wodsf")
 }],
-"loop": true,
+"loop": false,
 "name": &"jump_up",
 "speed": 5.0
 }, {
@@ -206,73 +206,70 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_c35mf")
 }],
-"loop": true,
+"loop": false,
 "name": &"jump_up_2",
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 0.8,
 "texture": SubResource("AtlasTexture_65viv")
 }, {
-"duration": 1.0,
+"duration": 0.8,
 "texture": SubResource("AtlasTexture_x7c3f")
 }, {
-"duration": 1.0,
+"duration": 0.8,
 "texture": SubResource("AtlasTexture_bjvpn")
 }, {
-"duration": 1.0,
+"duration": 0.8,
 "texture": SubResource("AtlasTexture_s7qer")
 }, {
-"duration": 1.0,
+"duration": 0.8,
 "texture": SubResource("AtlasTexture_g4c7l")
 }, {
-"duration": 1.0,
+"duration": 0.8,
 "texture": SubResource("AtlasTexture_knn7v")
 }],
 "loop": true,
-"name": &"walk",
+"name": &"run",
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 0.8,
 "texture": SubResource("AtlasTexture_7pqkx")
 }, {
-"duration": 1.0,
+"duration": 0.8,
 "texture": SubResource("AtlasTexture_uw77l")
 }, {
-"duration": 1.0,
+"duration": 0.8,
 "texture": SubResource("AtlasTexture_rptt4")
 }, {
-"duration": 1.0,
+"duration": 0.8,
 "texture": SubResource("AtlasTexture_r7pn3")
 }, {
-"duration": 1.0,
+"duration": 0.8,
 "texture": SubResource("AtlasTexture_b8hi5")
 }, {
-"duration": 1.0,
+"duration": 0.8,
 "texture": SubResource("AtlasTexture_2uvqg")
 }],
 "loop": true,
-"name": &"walk_2",
+"name": &"run_2",
 "speed": 5.0
 }]
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_onrkg")
 
-[node name="Skin" type="Sprite2D" parent="."]
-position = Vector2(0.9999995, -6.000002)
-scale = Vector2(2.5, 2.5)
-texture = ExtResource("2_rkbax")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 0)
-shape = SubResource("CapsuleShape2D_g1dw6")
+shape = SubResource("RectangleShape2D_qjkh3")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="PlayerAnimation" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
+scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_1s1yo")
-animation = &"walk_2"
-frame = 4
-frame_progress = 0.7535569
+animation = &"run_2"
 speed_scale = 2.0
+script = ExtResource("3_yw30f")
+
+[node name="PlayerMovement" type="Node2D" parent="."]
+script = ExtResource("4_yw30f")
