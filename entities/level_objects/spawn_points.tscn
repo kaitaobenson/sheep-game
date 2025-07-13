@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0x1x22xg6dyl"]
+
+[ext_resource type="Script" uid="uid://c78t4jer3ojfr" path="res://entities/level_objects/spawn_points.gd" id="1_ef3st"]
+
+[node name="SpawnPoints" type="Node2D"]
+script = ExtResource("1_ef3st")
+
+[node name="P1" type="Node2D" parent="."]
+
+[node name="Polygon2D" type="Polygon2D" parent="P1"]
+color = Color(0.73801124, 0.001686309, 0.89368075, 1)
+polygon = PackedVector2Array(0, 32, 32, 0, 0, -32, -32, 0)
+
+[node name="P2" type="Node2D" parent="."]
+position = Vector2(150, 0)
+
+[node name="Polygon2D" type="Polygon2D" parent="P2"]
+color = Color(0.73801124, 0.001686309, 0.89368075, 1)
+polygon = PackedVector2Array(0, 32, 32, 0, 0, -32, -32, 0)
+
+[node name="P3" type="Node2D" parent="."]
+position = Vector2(300, 0)
+
+[node name="Polygon2D" type="Polygon2D" parent="P3"]
+color = Color(0.73801124, 0.001686309, 0.89368075, 1)
+polygon = PackedVector2Array(0, 32, 32, 0, 0, -32, -32, 0)
+
+[node name="P4" type="Node2D" parent="."]
+position = Vector2(450, 0)
+
+[node name="Polygon2D" type="Polygon2D" parent="P4"]
+color = Color(0.73801124, 0.001686309, 0.89368075, 1)
+polygon = PackedVector2Array(0, 32, 32, 0, 0, -32, -32, 0)

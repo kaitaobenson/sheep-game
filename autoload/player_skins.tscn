@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://crim2duocgnxo"]
+
+[ext_resource type="Script" uid="uid://bfheo16r67wxh" path="res://autoload/player_skins.gd" id="1_qip00"]
+
+[node name="PlayerSkinsAutoload" type="Node2D"]
+script = ExtResource("1_qip00")
+path_to_skins_folder = "res://entities/player/skins"
