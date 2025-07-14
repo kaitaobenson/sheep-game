@@ -66,7 +66,6 @@ func get_axis_value(action: String, device: int) -> float:
 ## Check if an action is just pressed.
 func is_action_just_pressed(action: String, device: int) -> bool:
 	_checked = true
-	print(_just_pressed_array)
 	return ActionControllerPair.new(action, device).string() in _just_pressed_array
 
 ## Check if an action was just released.
