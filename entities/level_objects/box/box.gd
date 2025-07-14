@@ -16,6 +16,8 @@ var stack_object_below: Node2D
 
 var throw_velocity: Vector2 = Vector2.ZERO
 
+func _ready() -> void:
+	contact_monitor = true
 
 func _physics_process(delta: float) -> void:
 	just_thrown_timer = max(0.0, just_thrown_timer - delta)
@@ -24,18 +26,14 @@ func _physics_process(delta: float) -> void:
 		custom_integrator = true
 		throw_velocity = diminish_throw_velocity(throw_velocity, delta)
 	elif is_being_carried:
-		global_position = stack_object_below.global_position + Vector2(0, -HITBOX_SIZE.y)
 		custom_integrator = true
-	else:
-		custom_integrator = false
-
+		global_position = stack_object_below.global_position + Vector2(0, -HITBOX_SIZE.y)
 
 func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	if is_being_thrown:
 		if throw_velocity.is_equal_approx(Vector2.ZERO):
 			is_being_thrown = false
 		state.linear_velocity = throw_velocity
-
 
 func is_grabbable() -> bool:
 	return true
@@ -53,6 +51,7 @@ func get_carried_by(obj: Node2D) -> void:
 
 func get_thrown(force: Vector2) -> void:
 	print(force)
+	custom_integrator = false
 	freeze = false
 	lock_rotation = false
 	
