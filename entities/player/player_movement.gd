@@ -60,10 +60,9 @@ func _physics_process(delta: float) -> void:
 	if can_do_gravity():
 		process_gravity(delta)
 
-
-func process_run(delta: float) -> void:
-	var right = Input.get_action_strength("walk_right_p" + str(controller_id))
-	var left = Input.get_action_strength("walk_left_p" + str(controller_id))
+func process_run(_delta: float) -> void:
+	var right: float = MultiGamepadInput.get_axis_value("walk_right", controller_id)
+	var left: float = MultiGamepadInput.get_axis_value("walk_left", controller_id)
 	var move_dir: float = right - left
 
 	new_player_velocity.x = move_dir * move_speed
@@ -77,10 +76,10 @@ func process_run(delta: float) -> void:
 
 
 func process_jump() -> void:
-	if Input.is_action_just_pressed("a_p" + str(controller_id)):
+	if MultiGamepadInput.is_action_just_pressed("jump", controller_id):
 		jump_buffer_timer = jump_buffer_time
-
-	if Input.is_action_just_released("a_p" + str(controller_id)) && is_jumping_up:
+	
+	if MultiGamepadInput.is_action_just_released("jump", controller_id) && is_jumping_up:
 		new_player_velocity.y *= 0.5
 
 	if jump_buffer_timer > 0 && jump_coyote_timer > 0:

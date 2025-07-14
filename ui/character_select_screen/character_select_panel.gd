@@ -32,31 +32,29 @@ func recheck_controllers(device: int, connected: bool) -> void:
 			on_disconnected()
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if !is_connected:
 		return
 	
 	if !is_skin_selected:
 		
-		if Input.is_action_just_pressed("walk_left_p" + str(controller_id)):
+		if MultiGamepadInput.is_action_just_pressed("ui_left", controller_id):
 			current_skin_id -= 1
 			skin_sprite.texture = PlayerSkins.get_skin(current_skin_id)
 		
-		if Input.is_action_just_pressed("walk_right_p" + str(controller_id)):
+		if MultiGamepadInput.is_action_just_pressed("ui_right", controller_id):
 			current_skin_id += 1
 			skin_sprite.texture = PlayerSkins.get_skin(current_skin_id)
 		
-		if Input.is_action_just_pressed("a_p" + str(controller_id)):
+		if MultiGamepadInput.is_action_just_pressed("select", controller_id):
 			if panel_manager.select_skin_for_player(current_skin_id, controller_id):
 				on_skin_selected()
 			else:
 				flash_error()  # Can't select same skin
 	else:
-		
-		if Input.is_action_just_pressed("b_p" + str(controller_id)):
+		if MultiGamepadInput.is_action_just_pressed("back", controller_id):
 			on_connected()
 			panel_manager.deselect_skin_for_player(controller_id)
-
 
 func on_disconnected() -> void:
 	modulate.a = 0.5

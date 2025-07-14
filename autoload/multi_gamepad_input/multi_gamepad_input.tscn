@@ -1,0 +1,187 @@
+[gd_scene load_steps=39 format=3 uid="uid://ciujnxmhwu6yb"]
+
+[ext_resource type="Script" uid="uid://cd6gxicquybwx" path="res://autoload/multi_gamepad_input/multi_gamepad_input.gd" id="1_woy76"]
+[ext_resource type="Script" uid="uid://dq7sth8rhmhx1" path="res://autoload/multi_gamepad_input/multi_gamepad_action.gd" id="2_bwis4"]
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_bwis4"]
+button_index = 13
+pressed = true
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_783g0"]
+button_index = 13
+pressed = true
+
+[sub_resource type="InputEventKey" id="InputEventKey_y3fn8"]
+device = -1
+keycode = 65
+unicode = 97
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_hwwt3"]
+axis_value = -1.0
+
+[sub_resource type="Resource" id="Resource_783g0"]
+script = ExtResource("2_bwis4")
+name = "walk_left"
+keyboard = SubResource("InputEventKey_y3fn8")
+joypad = SubResource("InputEventJoypadButton_bwis4")
+joypad_nintendo = SubResource("InputEventJoypadButton_783g0")
+stick = SubResource("InputEventJoypadMotion_hwwt3")
+metadata/_custom_type_script = "uid://dq7sth8rhmhx1"
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_i08ew"]
+button_index = 14
+pressed = true
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_6cc1c"]
+button_index = 14
+pressed = true
+
+[sub_resource type="InputEventKey" id="InputEventKey_kecxo"]
+device = -1
+keycode = 68
+unicode = 100
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_e2thd"]
+axis_value = 1.0
+
+[sub_resource type="Resource" id="Resource_kvd2u"]
+script = ExtResource("2_bwis4")
+name = "walk_right"
+keyboard = SubResource("InputEventKey_kecxo")
+joypad = SubResource("InputEventJoypadButton_i08ew")
+joypad_nintendo = SubResource("InputEventJoypadButton_6cc1c")
+stick = SubResource("InputEventJoypadMotion_e2thd")
+metadata/_custom_type_script = "uid://dq7sth8rhmhx1"
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_y3fn8"]
+pressed = true
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_hwwt3"]
+button_index = 1
+pressed = true
+
+[sub_resource type="InputEventKey" id="InputEventKey_i08ew"]
+device = -1
+keycode = 87
+unicode = 119
+
+[sub_resource type="Resource" id="Resource_6cc1c"]
+script = ExtResource("2_bwis4")
+name = "jump"
+keyboard = SubResource("InputEventKey_i08ew")
+joypad = SubResource("InputEventJoypadButton_y3fn8")
+joypad_nintendo = SubResource("InputEventJoypadButton_hwwt3")
+metadata/_custom_type_script = "uid://dq7sth8rhmhx1"
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_kecxo"]
+button_index = 3
+pressed = true
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_e2thd"]
+button_index = 3
+pressed = true
+
+[sub_resource type="InputEventKey" id="InputEventKey_kvd2u"]
+device = -1
+keycode = 69
+unicode = 101
+
+[sub_resource type="Resource" id="Resource_aixlh"]
+script = ExtResource("2_bwis4")
+name = "pickup/throw"
+keyboard = SubResource("InputEventKey_kvd2u")
+joypad = SubResource("InputEventJoypadButton_kecxo")
+joypad_nintendo = SubResource("InputEventJoypadButton_e2thd")
+metadata/_custom_type_script = "uid://dq7sth8rhmhx1"
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_kvd2u"]
+pressed = true
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_aixlh"]
+button_index = 1
+pressed = true
+
+[sub_resource type="InputEventKey" id="InputEventKey_ri1wt"]
+device = -1
+keycode = 32
+unicode = 32
+
+[sub_resource type="Resource" id="Resource_vjthq"]
+script = ExtResource("2_bwis4")
+name = "select"
+keyboard = SubResource("InputEventKey_ri1wt")
+joypad = SubResource("InputEventJoypadButton_kvd2u")
+joypad_nintendo = SubResource("InputEventJoypadButton_aixlh")
+metadata/_custom_type_script = "uid://dq7sth8rhmhx1"
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_ri1wt"]
+button_index = 13
+pressed = true
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_vjthq"]
+button_index = 13
+pressed = true
+
+[sub_resource type="InputEventKey" id="InputEventKey_nmt6i"]
+device = -1
+keycode = 4194319
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_mn6pw"]
+axis_value = -1.0
+
+[sub_resource type="Resource" id="Resource_i1wly"]
+script = ExtResource("2_bwis4")
+name = "ui_left"
+keyboard = SubResource("InputEventKey_nmt6i")
+joypad = SubResource("InputEventJoypadButton_ri1wt")
+joypad_nintendo = SubResource("InputEventJoypadButton_vjthq")
+stick = SubResource("InputEventJoypadMotion_mn6pw")
+metadata/_custom_type_script = "uid://dq7sth8rhmhx1"
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_nmt6i"]
+button_index = 14
+pressed = true
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_mn6pw"]
+button_index = 14
+pressed = true
+
+[sub_resource type="InputEventKey" id="InputEventKey_i1wly"]
+device = -1
+keycode = 4194321
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_bl830"]
+axis_value = 1.0
+
+[sub_resource type="Resource" id="Resource_6ecr4"]
+script = ExtResource("2_bwis4")
+name = "ui_right"
+keyboard = SubResource("InputEventKey_i1wly")
+joypad = SubResource("InputEventJoypadButton_nmt6i")
+joypad_nintendo = SubResource("InputEventJoypadButton_mn6pw")
+stick = SubResource("InputEventJoypadMotion_bl830")
+metadata/_custom_type_script = "uid://dq7sth8rhmhx1"
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_i1wly"]
+button_index = 1
+pressed = true
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_bl830"]
+pressed = true
+
+[sub_resource type="InputEventKey" id="InputEventKey_6ecr4"]
+device = -1
+keycode = 4194305
+
+[sub_resource type="Resource" id="Resource_y8hqa"]
+script = ExtResource("2_bwis4")
+name = "back"
+keyboard = SubResource("InputEventKey_6ecr4")
+joypad = SubResource("InputEventJoypadButton_i1wly")
+joypad_nintendo = SubResource("InputEventJoypadButton_bl830")
+metadata/_custom_type_script = "uid://dq7sth8rhmhx1"
+
+[node name="MultiGamepadInput" type="Node"]
+script = ExtResource("1_woy76")
+_actions = Array[ExtResource("2_bwis4")]([SubResource("Resource_783g0"), SubResource("Resource_kvd2u"), SubResource("Resource_6cc1c"), SubResource("Resource_aixlh"), SubResource("Resource_vjthq"), SubResource("Resource_i1wly"), SubResource("Resource_6ecr4"), SubResource("Resource_y8hqa")])
+_stick_deadzone = 0.1999999999970896

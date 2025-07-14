@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://ciujnxmhwu6yb"]
-
-[ext_resource type="Script" uid="uid://cd6gxicquybwx" path="res://autoload/multi_gamepad_input/multi_gamepad_input.gd" id="1_woy76"]
-
-[node name="MultiGamepadAction" type="Node"]
-script = ExtResource("1_woy76")

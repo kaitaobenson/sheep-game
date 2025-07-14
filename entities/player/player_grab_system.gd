@@ -19,11 +19,9 @@ func _ready() -> void:
 	#player.connect()
 
 func _physics_process(delta: float) -> void:
-	var controller_id: String = str(player.controller_id)
-	
 	scale.x = player.facing_direction
 	
-	if Input.is_action_just_pressed("x_p" + controller_id):
+	if MultiGamepadInput.is_action_just_pressed("pickup/throw", player.controller_id):
 		if player.stack_object_above == null:
 			var obj = raycast_for_objects()
 			
