@@ -20,23 +20,26 @@ func _process(delta: float) -> void:
 	else:
 		scale.x = -3
 	
+	
+	
 	if player_movement.is_jumping_up:
 		if animation != "jump_up":
 			play("jump_up")
 		return
-	
-	if player_movement.is_falling_down:
+		
+	elif player_movement.is_falling_down:
 		if animation != "jump_down":
 			play("jump_down")
 		return
-	
-	if player_movement.is_running:
+		
+	elif player_movement.is_running:
 		if animation != "run":
 			play("run")
 		return
 	
-	if animation == "jump_land":
+	if animation == "jump_land" && is_playing():
 		return
+	
 	
 	play("idle")
 

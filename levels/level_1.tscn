@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=4 uid="uid://blfphqkre468j"]
+[gd_scene load_steps=7 format=4 uid="uid://blfphqkre468j"]
 
 [ext_resource type="Script" uid="uid://dbh3lh5uthpq1" path="res://levels/level_1.gd" id="1_n46q3"]
 [ext_resource type="PackedScene" uid="uid://n4fl8cya8afx" path="res://entities/level_objects/player_manager.tscn" id="2_btoec"]
 [ext_resource type="TileSet" uid="uid://pigbghvc0qxk" path="res://tilemap/tilemap.tres" id="3_gwceb"]
 [ext_resource type="PackedScene" uid="uid://biaewsad0vfk1" path="res://entities/level_objects/level_camera.tscn" id="4_l53as"]
 [ext_resource type="PackedScene" uid="uid://b0x1x22xg6dyl" path="res://entities/level_objects/spawn_points.tscn" id="5_3sk1a"]
+[ext_resource type="PackedScene" uid="uid://b7ala5ngd8yc0" path="res://entities/level_objects/box/box.tscn" id="6_btoec"]
 
 [node name="Level1" type="Node2D" node_paths=PackedStringArray("spawn_points", "player_manager", "level_camera")]
 script = ExtResource("1_n46q3")
@@ -38,6 +39,12 @@ position = Vector2(-618, -84)
 
 [node name="RightCamBound" parent="LevelCamera" index="4"]
 position = Vector2(1370, -46)
+
+[node name="Box" parent="." instance=ExtResource("6_btoec")]
+position = Vector2(216, -9)
+
+[node name="Box2" parent="." instance=ExtResource("6_btoec")]
+position = Vector2(1457, 292)
 
 [editable path="SpawnPoints"]
 [editable path="LevelCamera"]
