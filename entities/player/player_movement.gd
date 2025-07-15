@@ -1,3 +1,4 @@
+@icon("res://icons/player_movement.png")
 class_name PlayerMovement
 extends Node2D
 

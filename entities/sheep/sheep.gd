@@ -1,3 +1,4 @@
+@icon("res://icons/sheep.png")
 class_name Sheep
 extends RigidBody2D
 

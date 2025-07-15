@@ -1,3 +1,4 @@
+@icon("res://icons/character_select_panel_manager.png")
 class_name CharacterSelectPanelManager
 extends HBoxContainer
 

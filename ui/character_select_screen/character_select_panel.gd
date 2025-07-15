@@ -1,3 +1,4 @@
+@icon("res://icons/character_select_panel.png")
 class_name CharacterSelectPanel
 extends Panel
 
