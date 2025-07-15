@@ -1,3 +1,4 @@
+@icon("res://icons/start_screen_menu.png")
 class_name StartScreenMenu
 extends VBoxContainer
 
