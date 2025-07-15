@@ -2,6 +2,18 @@ class_name PlayerGrabSystem
 extends Node2D
 
 
+@export var throw_force: float = 600
+
+# Input
+var controller_id: int = 0:
+	get:
+		return player.controller_id
+
+@onready var player: Player = get_parent()
+
+@onready var grabber_component: GrabberComponent = $"GrabberComponent"
+@onready var grabbable_component: GrabbableComponent = $"GrabbableComponent"
+
 @onready var raycasts: Array[RayCast2D] = [
 	$"RayCast1",
 	$"RayCast2",
@@ -9,50 +21,27 @@ extends Node2D
 ]
 
 
-@onready var player: Player = get_parent()
-
-var just_thrown_time: float = 0.1
-var just_thrown_timer: float = 0.0
-
-func _ready() -> void:
-	player.connect("thrown", just_thrown)
-	#player.connect()
-
 func _physics_process(delta: float) -> void:
-	var controller_id: String = str(player.controller_id)
-	
 	scale.x = player.facing_direction
 	
-	if Input.is_action_just_pressed("x_p" + controller_id):
-		if player.stack_object_above == null:
+	if Input.is_action_just_pressed("x_p" + str(controller_id)):
+		
+		if !grabber_component.is_grabbing:
 			var obj = raycast_for_objects()
 			
-			if obj == null:
-				return
-			
-			player.carry(obj)
+			if obj != null:
+				grabber_component.grab(obj)
+				DebugLogger.info("Player %d grabbed object: %s" % [controller_id, obj])
+		
 		else:
-			var force = Vector2.from_angle(deg_to_rad(-30)) * 700
-			force.x += abs(player.move_velocity.x * 0.5)
+			var force: Vector2 = Vector2.from_angle(deg_to_rad(-30)) * throw_force
+			if abs(player.move_velocity.x) > 300:
+				force.x += 20
+			
 			force.x *= player.facing_direction
 			
-			player.throw(force)
-	
-	if just_thrown_timer > 0:
-		just_thrown_timer -= delta
-
-func diminish_throw_velocity(velocity: Vector2, delta: float) -> Vector2:
-	if just_thrown_timer > 0:
-		return velocity
-	
-	if player.is_grounded:
-		velocity.x = 0
-		velocity.y = 0
-	else:
-		velocity.x *= 0.98
-		velocity.y += 2000 * delta
-	
-	return velocity
+			DebugLogger.info("Player %d threw object: %s" % [controller_id, grabber_component.grabbed_obj])
+			grabber_component.throw(force)
 
 
 func raycast_for_objects() -> Node2D:
@@ -60,23 +49,7 @@ func raycast_for_objects() -> Node2D:
 		if !ray.is_colliding():
 			continue
 		var collider = ray.get_collider()
-		if collider.has_method("is_grabbable") && collider.is_grabbable():
+		if collider.has_method("get_grabbable_component"):
 			return collider
 	
 	return null
-
-"""
-func get_stack_count_recursive(stack_object_above: Node2D, count: int = 0) -> int:
-	if stack_object_above == null:
-		return count
-	
-	count += 1
-	
-	if stack_object_above is Player:
-		var player := stack_object_above as Player
-		return get_stack_count_recursive(player.stack_object_above, count)
-	else:
-		return count
-"""
-func just_thrown() -> void:
-	just_thrown_timer = just_thrown_time

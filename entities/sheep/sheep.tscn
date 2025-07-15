@@ -1,7 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://chki0wwfkyws3"]
+[gd_scene load_steps=20 format=3 uid="uid://chki0wwfkyws3"]
 
 [ext_resource type="Script" uid="uid://3pwmfafx2wxb" path="res://entities/sheep/sheep.gd" id="1_xqjq8"]
 [ext_resource type="Texture2D" uid="uid://bwaquwiar8ejn" path="res://entities/sheep/sheep_sheet.png" id="2_qhocy"]
+[ext_resource type="Script" uid="uid://cauq4mrusxe1n" path="res://components/grab_component.gd" id="3_fxwg6"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_tbl57"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y540r"]
 atlas = ExtResource("2_qhocy")
@@ -123,18 +126,16 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gk12l"]
-size = Vector2(32, 24)
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xqjq8"]
-radius = 9.0
-height = 32.0
+size = Vector2(96, 96)
 
 [node name="Sheep" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_tbl57")
 lock_rotation = true
 script = ExtResource("1_xqjq8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
+scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_yqv8s")
 animation = &"walk"
 frame_progress = 0.9121435
@@ -143,7 +144,6 @@ frame_progress = 0.9121435
 position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_gk12l")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(0, 8)
-rotation = 1.5707964
-shape = SubResource("CapsuleShape2D_xqjq8")
+[node name="GrabbableComponent" type="Node2D" parent="."]
+script = ExtResource("3_fxwg6")
+metadata/_custom_type_script = "uid://cauq4mrusxe1n"

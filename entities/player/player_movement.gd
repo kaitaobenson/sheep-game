@@ -43,7 +43,8 @@ var new_player_velocity: Vector2 = Vector2.ZERO
 
 
 func _ready() -> void:
-	player.thrown.connect(on_just_thrown)
+	await get_tree().process_frame
+	player.grabbable_component.thrown.connect(on_just_thrown)
 
 
 func _physics_process(delta: float) -> void:
@@ -97,7 +98,6 @@ func process_gravity(delta: float) -> void:
 		new_player_velocity.y = 0
 	else:
 		new_player_velocity.y += gravity * delta
-	
 
 
 func update_timers(delta: float) -> void:
@@ -130,13 +130,13 @@ func on_just_thrown() -> void:
 
 
 func can_run() -> bool:
-	return !player.is_being_carried && !player.is_being_thrown
+	return !player.grabbable_component.is_being_grabbed && !player.grabbable_component.is_being_thrown
 
 func can_jump() -> bool:
-	return !player.is_being_carried && !player.is_being_thrown
+	return !player.grabbable_component.is_being_grabbed && !player.grabbable_component.is_being_thrown
 
 func can_do_gravity() -> bool:
-	return !player.is_being_carried && !player.is_being_thrown
+	return !player.grabbable_component.is_being_grabbed && !player.grabbable_component.is_being_thrown
 
 
 func is_on_floor() -> bool:
