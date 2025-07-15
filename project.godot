@@ -21,6 +21,11 @@ DebugLogger="*res://autoload/logger.gd"
 PlayerSkins="*res://autoload/player_skins.tscn"
 GameState="*res://autoload/game_state.gd"
 
+[debug]
+
+gdscript/warnings/unused_private_class_variable=0
+gdscript/warnings/unused_parameter=0
+
 [input]
 
 ui_accept={
