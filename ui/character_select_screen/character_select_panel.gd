@@ -10,7 +10,7 @@ extends Panel
 
 var current_skin_id: int = 0
 
-var is_connected: bool = false
+var is_controller_connected: bool = false
 var is_skin_selected: bool = false
 
 func _ready() -> void:
@@ -34,7 +34,7 @@ func recheck_controllers(device: int, connected: bool) -> void:
 
 
 func _process(_delta: float) -> void:
-	if !is_connected:
+	if !is_controller_connected:
 		return
 	
 	if !is_skin_selected:
@@ -60,21 +60,21 @@ func _process(_delta: float) -> void:
 func on_disconnected() -> void:
 	modulate.a = 0.5
 	status_label.text = "Not Connected"
-	is_connected = false
+	is_controller_connected = false
 	is_skin_selected = false
 	current_skin_id = 0
 
 func on_connected() -> void:
 	modulate.a = 1.0
 	status_label.text = "Press A to Select Character"
-	is_connected = true
+	is_controller_connected = true
 	is_skin_selected = false
 	current_skin_id = 0
 
 func on_skin_selected() -> void:
 	modulate.a = 1.0
 	status_label.text = "Ready"
-	is_connected = true
+	is_controller_connected = true
 	is_skin_selected = true
 
 func flash_error():
