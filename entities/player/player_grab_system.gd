@@ -1,3 +1,4 @@
+@icon("res://icons/container.svg")
 class_name PlayerGrabSystem
 extends Node2D
 

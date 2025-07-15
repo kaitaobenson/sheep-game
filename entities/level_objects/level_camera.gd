@@ -1,3 +1,4 @@
+@icon("res://icons/container.svg")
 class_name LevelCamera
 extends Node2D
 

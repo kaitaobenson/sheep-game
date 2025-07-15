@@ -1,3 +1,4 @@
+@icon("res://icons/container.svg")
 class_name PlayerSpawnPoints
 extends Node2D
 
