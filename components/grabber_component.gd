@@ -1,3 +1,4 @@
+@icon("res://icons/grabber_component.svg")
 class_name GrabberComponent
 extends Node2D
 

@@ -1,3 +1,4 @@
+@icon("res://icons/box.svg")
 class_name Box
 extends RigidBody2D
 
