@@ -1,15 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://b7ala5ngd8yc0"]
+[gd_scene load_steps=6 format=3 uid="uid://b7ala5ngd8yc0"]
 
 [ext_resource type="Script" uid="uid://di8ve7ps7ih5h" path="res://entities/level_objects/box/box.gd" id="1_g2tbl"]
 [ext_resource type="Texture2D" uid="uid://b8mol4umby0l7" path="res://entities/level_objects/box/box.png" id="2_id4rd"]
+[ext_resource type="Script" uid="uid://cauq4mrusxe1n" path="res://components/grab_component.gd" id="3_y2m6s"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_id4rd"]
+friction = 2.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y2m6s"]
 size = Vector2(94.5, 96)
 
 [node name="Box" type="RigidBody2D"]
 physics_material_override = SubResource("PhysicsMaterial_id4rd")
+max_contacts_reported = 1
 script = ExtResource("1_g2tbl")
 
 [node name="Box" type="Sprite2D" parent="."]
@@ -20,3 +23,7 @@ texture = ExtResource("2_id4rd")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.25, 0)
 shape = SubResource("RectangleShape2D_y2m6s")
+
+[node name="GrabbableComponent" type="Node2D" parent="."]
+script = ExtResource("3_y2m6s")
+metadata/_custom_type_script = "uid://cauq4mrusxe1n"
