@@ -56,7 +56,8 @@ func check_for_readiness() -> void:
 		start_label.modulate.a = 0.0
 
 func _process(delta: float) -> void:
-	if all_players_are_ready && Input.is_action_just_pressed("ui_accept"):
+	# Only "host" controller can start the game.
+	if all_players_are_ready && MultiGamepadInput.is_action_just_pressed("select", 0):
 		register_players()
 		get_tree().change_scene_to_file(level1)
 
