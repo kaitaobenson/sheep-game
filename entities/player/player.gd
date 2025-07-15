@@ -19,7 +19,7 @@ var playing_animation: String = "":  ## Animation name
 # Player internal systems shouldn't be accessed from outside
 # Sometimes internal systems can use variables from other internal systems
 @onready var _player_animation: PlayerAnimation = $"PlayerAnimation"
-@onready var _player_movement: PlayerMovment = $"PlayerMovement"
+@onready var _player_movement: PlayerMovement = $"PlayerMovement"
 @onready var _player_grab_system: PlayerGrabSystem = $"PlayerGrabSystem"
 
 @onready var grabbable_component: GrabbableComponent = $"PlayerGrabSystem/GrabbableComponent"

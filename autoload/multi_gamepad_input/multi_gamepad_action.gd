@@ -9,22 +9,18 @@ extends Resource
 @export var mouse: InputEventMouseButton
 
 func is_this_key(event: InputEvent) -> bool:
-	var is_this: bool = false
 	if event is InputEventKey && keyboard:
-		is_this = event.keycode == keyboard.keycode
+		return event.keycode == keyboard.keycode
 	if event is InputEventJoypadButton && joypad:
 		var controller_name: String = Input.get_joy_name(event.device)
 		if controller_name == "Nintendo Switch Pro Controller":
-			is_this = event.button_index == joypad_nintendo.button_index
+			return event.button_index == joypad_nintendo.button_index
 		else:
-			is_this = event.button_index == joypad.button_index
+			return event.button_index == joypad.button_index
 	if event is InputEventJoypadMotion && stick:
-		is_this = event.axis == stick.axis && \
+		return event.axis == stick.axis && \
 			   sign(event.axis_value) == sign(stick.axis_value)
 	if event is InputEventMouseButton && mouse:
-		is_this = event.button_index == mouse.button_index
+		return event.button_index == mouse.button_index
 	
-	if is_this:
-		return true
-	else:
-		return false
+	return false
