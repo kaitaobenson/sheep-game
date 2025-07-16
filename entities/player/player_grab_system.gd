@@ -25,8 +25,7 @@ var controller_id: int = 0:
 func _physics_process(delta: float) -> void:
 	scale.x = player.facing_direction
 	
-	if Input.is_action_just_pressed("x_p" + str(controller_id)):
-		
+	if MultiGamepadInput.is_action_just_pressed("pickup/throw", player.controller_id):
 		if !grabber_component.is_grabbing:
 			var obj = raycast_for_objects()
 			
