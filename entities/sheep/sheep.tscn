@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://chki0wwfkyws3"]
+[gd_scene load_steps=19 format=3 uid="uid://chki0wwfkyws3"]
 
 [ext_resource type="Script" uid="uid://3pwmfafx2wxb" path="res://entities/sheep/sheep.gd" id="1_xqjq8"]
 [ext_resource type="Texture2D" uid="uid://bwaquwiar8ejn" path="res://entities/sheep/sheep_sheet.png" id="2_qhocy"]
@@ -125,9 +125,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gk12l"]
-size = Vector2(96, 96)
-
 [node name="Sheep" type="RigidBody2D"]
 physics_material_override = SubResource("PhysicsMaterial_tbl57")
 lock_rotation = true
@@ -140,10 +137,9 @@ sprite_frames = SubResource("SpriteFrames_yqv8s")
 animation = &"walk"
 frame_progress = 0.9121435
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -4)
-shape = SubResource("RectangleShape2D_gk12l")
-
 [node name="GrabbableComponent" type="Node2D" parent="."]
 script = ExtResource("3_fxwg6")
 metadata/_custom_type_script = "uid://cauq4mrusxe1n"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-48, 44, 48, 44, 48, -50, 46, -52, -46, -52, -48, -50)
