@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://blfphqkre468j"]
+[gd_scene load_steps=10 format=4 uid="uid://blfphqkre468j"]
 
 [ext_resource type="Script" uid="uid://dbh3lh5uthpq1" path="res://levels/level_1.gd" id="1_n46q3"]
 [ext_resource type="PackedScene" uid="uid://n4fl8cya8afx" path="res://entities/level_objects/player_manager.tscn" id="2_btoec"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://b0x1x22xg6dyl" path="res://entities/level_objects/spawn_points.tscn" id="5_3sk1a"]
 [ext_resource type="PackedScene" uid="uid://b7ala5ngd8yc0" path="res://entities/level_objects/box/box.tscn" id="6_btoec"]
 [ext_resource type="PackedScene" uid="uid://chki0wwfkyws3" path="res://entities/sheep/sheep.tscn" id="7_gwceb"]
+[ext_resource type="PackedScene" uid="uid://wx3v2d88s4f8" path="res://entities/level_objects/carrot/carrot.tscn" id="8_l53as"]
+[ext_resource type="PackedScene" uid="uid://bym6kdbopm4jd" path="res://entities/level_objects/stick/stick.tscn" id="9_3sk1a"]
 
 [node name="Level1" type="Node2D" node_paths=PackedStringArray("spawn_points", "player_manager", "level_camera")]
 script = ExtResource("1_n46q3")
@@ -49,6 +51,12 @@ position = Vector2(1457, 292)
 
 [node name="Sheep" parent="." instance=ExtResource("7_gwceb")]
 position = Vector2(1058, 325)
+
+[node name="Carrot" parent="." instance=ExtResource("8_l53as")]
+position = Vector2(699, 129)
+
+[node name="Stick" parent="." instance=ExtResource("9_3sk1a")]
+position = Vector2(497, 24)
 
 [editable path="SpawnPoints"]
 [editable path="LevelCamera"]

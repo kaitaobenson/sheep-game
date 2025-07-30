@@ -11,6 +11,7 @@ friction = 2.0
 size = Vector2(94.5, 96)
 
 [node name="Box" type="RigidBody2D"]
+mass = 5.0
 physics_material_override = SubResource("PhysicsMaterial_id4rd")
 max_contacts_reported = 1
 script = ExtResource("1_g2tbl")

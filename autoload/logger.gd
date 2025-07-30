@@ -15,8 +15,8 @@ func log_message(message: String, level: String = "info"):
 
 	var stack = get_stack()
 	var origin = ""
-	if stack.size() > 1:
-		var caller = stack[1]
+	if stack.size() > 2:
+		var caller = stack[2]
 		origin = "%s:%s" % [caller.source.get_file(), caller.line]
 
 	var color: String = COLORS.get(level)

@@ -264,6 +264,7 @@ animations = [{
 
 [node name="Player" type="RigidBody2D"]
 show_behind_parent = true
+mass = 60.0
 physics_material_override = SubResource("PhysicsMaterial_yw30f")
 lock_rotation = true
 script = ExtResource("1_onrkg")
