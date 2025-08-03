@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://wx3v2d88s4f8"]
+
+[ext_resource type="Script" uid="uid://bhgwwm7xjug20" path="res://entities/level_objects/carrot/carrot.gd" id="1_1b2xi"]
+[ext_resource type="Script" uid="uid://cauq4mrusxe1n" path="res://components/grab_component.gd" id="2_5takd"]
+[ext_resource type="Texture2D" uid="uid://tbwtcalwi57m" path="res://entities/level_objects/carrot/carrot.png" id="3_fobro"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5takd"]
+radius = 37.25
+height = 94.0
+
+[node name="Carrot" type="RigidBody2D"]
+mass = 2.0
+script = ExtResource("1_1b2xi")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, 9)
+scale = Vector2(3, 3)
+texture = ExtResource("3_fobro")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.25, 0)
+shape = SubResource("CapsuleShape2D_5takd")
+
+[node name="GrabbableComponent" type="Node2D" parent="."]
+script = ExtResource("2_5takd")
+metadata/_custom_type_script = "uid://cauq4mrusxe1n"

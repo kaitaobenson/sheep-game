@@ -129,6 +129,7 @@ animations = [{
 size = Vector2(96, 96)
 
 [node name="Sheep" type="RigidBody2D"]
+mass = 50.0
 physics_material_override = SubResource("PhysicsMaterial_tbl57")
 lock_rotation = true
 script = ExtResource("1_xqjq8")

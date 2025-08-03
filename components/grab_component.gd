@@ -16,6 +16,8 @@ var grabbed_by: Node2D = null
 
 @onready var parent: RigidBody2D
 
+@export var grab_offset: Vector2 = Vector2(0, -96)
+
 func _ready() -> void:
 	# KMS 
 	if get_parent() is RigidBody2D:
@@ -62,3 +64,15 @@ func get_thrown(force: Vector2) -> void:
 	parent.angular_velocity = 0.0
 	parent.apply_central_impulse(force)
 	thrown.emit()
+
+func get_grab_position() -> Vector2:
+	if !is_being_grabbed:
+		DebugLogger.warn("Try to call get_grab_position when the component isn't grabbed. Returning (0,0)")
+		return Vector2.ZERO
+	
+	if !grabbed_by.has_method("get_grabbable_component"):
+		DebugLogger.error("grabbed_by has no method get_grabbable_component.")
+		return Vector2.ZERO
+	
+	var grabber_component: GrabberComponent = grabbed_by.get_grabbable_component()
+	return grabber_component.global_position + grab_offset

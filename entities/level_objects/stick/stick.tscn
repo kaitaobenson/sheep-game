@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://bym6kdbopm4jd"]
+
+[ext_resource type="Script" uid="uid://nni4iacbkgt1" path="res://entities/level_objects/stick/stick.gd" id="1_xy22t"]
+[ext_resource type="Texture2D" uid="uid://bsx325oikju7x" path="res://entities/level_objects/stick/stick.png" id="2_6vrgm"]
+[ext_resource type="Script" uid="uid://cauq4mrusxe1n" path="res://components/grab_component.gd" id="3_smmeu"]
+
+[node name="Stick" type="RigidBody2D"]
+mass = 0.001
+freeze = true
+freeze_mode = 1
+script = ExtResource("1_xy22t")
+
+[node name="Stick2" type="Sprite2D" parent="."]
+texture_filter = 1
+rotation = 0.7853982
+scale = Vector2(2.9999998, 2.9999998)
+texture = ExtResource("2_6vrgm")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(63, 0)
+
+[node name="GrabbableComponent" type="Node2D" parent="."]
+script = ExtResource("3_smmeu")
+metadata/_custom_type_script = "uid://cauq4mrusxe1n"
